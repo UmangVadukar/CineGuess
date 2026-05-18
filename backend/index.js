@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,7 +14,10 @@ const distDir = path.join(rootDir, 'dist')
 const app = express()
 const port = process.env.PORT || 3001
 
-app.use(express.json())
+app.use(cors({
+  origin: 'https://cineguessweb.onrender.com',
+  credentials: true
+}))
 
 async function ensureStore() {
   if (!existsSync(dataDir)) {
