@@ -1,4 +1,4 @@
-const API_BASE = '/api/leaderboard'
+const API_BASE = `${import.meta.env.VITE_API_URL}/api/leaderboard`
 
 export async function loadLeaderboard() {
   const response = await fetch(API_BASE)
