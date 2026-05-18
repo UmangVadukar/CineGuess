@@ -14,10 +14,15 @@ const distDir = path.join(rootDir, 'dist')
 const app = express()
 const port = process.env.PORT || 3001
 
+// Allow configuring CORS origin via environment for local development
+const allowedOrigin = process.env.CORS_ORIGIN || 'https://cineguessweb.onrender.com'
 app.use(cors({
-  origin: 'https://cineguessweb.onrender.com',
-  credentials: true
+  origin: allowedOrigin,
+  credentials: true,
 }))
+
+// Parse JSON request bodies
+app.use(express.json())
 
 async function ensureStore() {
   if (!existsSync(dataDir)) {
