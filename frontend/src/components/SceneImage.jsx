@@ -39,7 +39,12 @@ function MovieReveal({ movie, status, score, attempt }) {
         initial={{ scale: 0.85, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="h-44 w-auto max-w-[45%] rounded-lg object-cover shadow-glow sm:h-52"
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
+        onMouseDown={(e) => e.preventDefault()}
+        style={{ userSelect: 'none', WebkitUserDrag: 'none' }}
+        className="h-44 w-auto max-w-[45%] rounded-lg object-cover shadow-glow sm:h-52 select-none cursor-default"
       />
       <motion.h2
         initial={{ y: 12, opacity: 0 }}
@@ -75,7 +80,12 @@ export default function SceneImage({ movie, wrongCount, status, score, attempt }
       <motion.img
         src={movie.scene}
         alt="Movie scene"
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover select-none cursor-default"
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
+        onMouseDown={(e) => e.preventDefault()}
+        style={{ userSelect: 'none', WebkitUserDrag: 'none' }}
         animate={{ filter: `blur(${blurPx}px)` }}
         transition={{ duration: 0.5 }}
       />

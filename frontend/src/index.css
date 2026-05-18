@@ -27,8 +27,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-}
+  
+  /* discourage copying/inspecting by disabling text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
+  }
 
 @layer utilities {
   .film-grain::after {
