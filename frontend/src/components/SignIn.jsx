@@ -70,27 +70,28 @@ export default function SignIn({ onSuccess }) {
         {clientId ? (
           <div className="flex flex-col items-center gap-4">
             <div id="gsi-button"></div>
-            <div className="text-sm text-white/60">or continue with your name</div>
           </div>
         ) : (
-          <p className="text-sm text-white/60 mb-4">Google sign-in not configured. Enter a display name to continue.</p>
-        )}
+          <>
+            <p className="text-sm text-white/60 mb-4">Google sign-in not configured. Enter a display name to continue.</p>
 
-        <div className="mt-6 flex gap-2">
-          <input
-            aria-label="Your name"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="flex-1 rounded-lg border border-cinema-border bg-transparent px-3 py-2 text-sm text-white outline-none"
-          />
-          <button
-            onClick={handleContinueAs}
-            className="rounded-lg bg-cinema-red px-4 py-2 text-sm font-semibold text-white"
-          >
-            Continue
-          </button>
-        </div>
+            <div className="mt-6 flex gap-2">
+              <input
+                aria-label="Your name"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="flex-1 rounded-lg border border-cinema-border bg-transparent px-3 py-2 text-sm text-white outline-none"
+              />
+              <button
+                onClick={handleContinueAs}
+                className="rounded-lg bg-cinema-red px-4 py-2 text-sm font-semibold text-white"
+              >
+                Continue
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
