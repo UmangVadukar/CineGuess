@@ -15,6 +15,7 @@ import {
 import { getPlayerName, setPlayerName, loadAuthUser } from './utils/storage.js'
 import SignIn from './components/SignIn.jsx'
 import { addLeaderboardEntry, loadLeaderboard } from './data/leaderboardApi.js'
+import { MOVIES, MAX_ATTEMPTS } from './data/movies.js'
 
 export default function App() {
   const [authUser, setAuthUser] = useState(loadAuthUser)
