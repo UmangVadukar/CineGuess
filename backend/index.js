@@ -9,7 +9,9 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const dataDir = __dirname
-const leaderboardFile = path.join(dataDir, 'leaderboard.json')
+const leaderboardFile = process.env.LEADERBOARD_FILE
+  ? path.resolve(process.env.LEADERBOARD_FILE)
+  : path.join(dataDir, 'leaderboard.json')
 const distDir = path.join(rootDir, 'dist')
 const app = express()
 const port = process.env.PORT || 3001
@@ -25,8 +27,10 @@ app.use(cors({
 app.use(express.json())
 
 async function ensureStore() {
-  if (!existsSync(dataDir)) {
-    await mkdir(dataDir, { recursive: true })
+  const leaderboardDir = path.dirname(leaderboardFile)
+
+  if (!existsSync(leaderboardDir)) {
+    await mkdir(leaderboardDir, { recursive: true })
   }
 
   if (!existsSync(leaderboardFile)) {
