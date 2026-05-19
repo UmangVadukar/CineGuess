@@ -4,7 +4,6 @@ import SceneImage from './components/SceneImage.jsx'
 import AttemptsBar from './components/AttemptsBar.jsx'
 import GuessForm from './components/GuessForm.jsx'
 import Leaderboard from './components/Leaderboard.jsx'
-import { MAX_ATTEMPTS, MOVIES } from './data/tmdbMovies.js'
 import {
   allMoviesPlayed,
   isCorrectGuess,
