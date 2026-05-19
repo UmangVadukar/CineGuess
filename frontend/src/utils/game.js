@@ -1,4 +1,4 @@
-import { MOVIES } from '../data/tmdbMovies.js'
+import { MOVIES } from '../data/movies.js'
 
 const MIN_GUESS_LENGTH = 1
 
@@ -18,7 +18,7 @@ export function isGuessTooShort(guess) {
 }
 
 /**
- * @param {import('../data/tmdbMovies.js').Movie} movie
+ * @param {import('../data/movies.js').Movie} movie
  * @param {string} guess
  */
 export function isCorrectGuess(movie, guess) {

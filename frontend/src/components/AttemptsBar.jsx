@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { MAX_ATTEMPTS } from '../data/tmdbMovies.js'
+import { MAX_ATTEMPTS } from '../data/movies.js'
 
 export default function AttemptsBar({ used, status }) {
   return (
